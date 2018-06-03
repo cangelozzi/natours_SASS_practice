@@ -1,0 +1,44 @@
+/* BASIC simple CSS RESET */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; /* inehrit from Body */
+}
+/* ----------------------- */
+
+/* BASIC HTML TO PX TO USE ALL IN REM, ONE POINT CHANGE ALL */
+html {
+  font-size: 62.5%; /* 62.5% of 16px is 10px which is 1rem ... 10px since it is easy to divide px and get rem */
+
+  @include respond(tab_Land) {
+    font-size: 56.25%; // 1rem I want 9px = 9/16
+  }
+
+  @include respond(tab_Port) {
+    font-size: 50%; // 1rem I want 8px = 8/16
+  }
+
+  @include respond(phone) {
+  }
+
+  @include respond(big_Desk) {
+    font-size: 75%; // 1rem I want 12px = 12/16
+  }
+}
+/* ------------------------------------------------------- */
+
+body {
+  box-sizing: border-box;
+  padding: 3rem;
+
+  @include respond(tab_Port) {
+    padding: 0;
+  }
+}
+
+::selection {
+  background-color: $color-secondary-light;
+  color: $color-white;
+}

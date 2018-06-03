@@ -1,0 +1,54 @@
+@mixin clearfix {
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin absoluteCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+//! M E D I A    Q U E R I E S ------
+// 0 - 600px -> phone
+// 600ps - 900px tablet portrait
+// 00px - 1200px tablet landscape
+// 1200px - 1800px desktop
+// 1800 - large desktop
+
+/*
+Breakpoint:
+- phone
+- tab_Port
+- tab_Land
+- big_Desk
+
+Media Queries Order of actions: BASE + TYPOGRAPHY, GENERAL LAYOUT, PAGE LAYOUT, COMPONENTS 
+
+1em = 16px
+*/
+
+@mixin respond($breakpoint) {
+
+  @if $breakpoint == phone {
+    @media only screen and (max-width: 37.5em) { @content}; // 600px
+  }
+
+  @if $breakpoint == tab_Port {
+    @media only screen and (max-width: 56.25em) { @content};  // 900px
+  }
+
+  @if $breakpoint == tab_Land {
+    @media only screen and (max-width: 75em) { @content};  // 1200px
+  }
+
+  @if $breakpoint == big_Desk {
+    @media only screen and (min-width: 112.5em) { @content};  // 1800px
+  }
+
+}
+ 

@@ -1,0 +1,77 @@
+.row {
+  max-width: $grid-width;
+  // background-color: #eee;
+  margin: 0 auto;
+
+  &:not(:last-child) {
+    margin-bottom: $gutter_vertical;
+
+    @include respond(tab_Port) {
+      margin-bottom: $gutter_vertical-small;
+    }
+  }
+
+  @include respond(tab_Port) {
+     max-width: 50rem;
+     padding: 0 3rem;
+  }
+
+  // include floats CLEARFIX mixin in the parent
+  @include clearfix;
+
+  // same rules for each columns ^ it mans beginning of the attribute
+  [class^="col-"] {
+    // background-color: orangered;
+    float: left;
+
+    &:not(:last-child) {
+      margin-right: $gutter_horizontal;
+
+      @include respond(tab_Port) {
+        margin-right: 0;
+        margin-bottom: $gutter_vertical-small;
+      }
+    }
+
+    @include respond(tab_Port) {
+      width: 100% !important;
+    }
+  }
+
+  // col-1-of-2
+  .col-1-of-2 {
+    width: calc((100% - #{$gutter_horizontal}) / 2);
+  }
+
+  // col-1-of-3
+  .col-1-of-3 {
+    width: calc((100% - (#{$gutter_horizontal}) * 2) / 3);
+  }
+
+  // col-2-of-3
+  .col-2-of-3 {
+    width: calc(
+      2 * ((100% - 2 * #{$gutter_horizontal}) / 3) + #{$gutter_horizontal}
+    );
+  }
+
+  // col-1-of-4
+  .col-1-of-4 {
+    width: calc((100% - (#{$gutter_horizontal}) * 3) / 4);
+  }
+
+  // col-2-of-4
+  .col-2-of-4 {
+    width: calc(
+      2 * ((100% - (#{$gutter_horizontal}) * 3) / 4) + #{$gutter_horizontal}
+    );
+  }
+
+  // col-3-of-4
+  .col-3-of-4 {
+    width: calc(
+      3 * ((100% - (#{$gutter_horizontal}) * 3) / 4) + 2 *
+        (#{$gutter_horizontal})
+    );
+  }
+} // ----- END OF ROW -----
