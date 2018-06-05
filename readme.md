@@ -10,6 +10,12 @@ npm run start
 The project goal was to apply advanced CSS3 properties using SASS extension language, including Block, Element, Modifier methodology (commonly referred to as BEM). 
 https://gist.github.com/rveitch/84cea9650092119527bc
 
+![image](img/intro.png)
+
+![image](img/page2.png)
+
+![image](img/page1.png)
+
 ### package.json
 Great importance is given to scripts:
 {
